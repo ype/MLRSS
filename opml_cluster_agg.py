@@ -9,7 +9,7 @@
 # Filename: opml_cluster_agg                                         #
 # Version: 0.0.1                                                     #
 # Description: Clustering RSS Aggregator                             #
-# Based On: Carl Anderson wonderful Howto @ http://bit.ly/1ioH5pY    #
+# Based On: Carl Anderson's wonderful Howto @ http://bit.ly/1ioH5pY  #
 ######################################################################
 ######################################################################
 from xtermcolor import colorize
