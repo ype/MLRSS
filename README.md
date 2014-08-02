@@ -22,19 +22,19 @@ If you export an OPML file from any handful of popular rss readers (feedly, news
 
 ### Get
 
-```
+```bash
 git clone https://github.com/ype/MLRSS.git
 ```
 
 ### Install
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
 ### Run
 
-```
+```bash
 python opml_cluster_agg.py
 
 ```
