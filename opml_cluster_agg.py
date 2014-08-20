@@ -3,8 +3,8 @@
 # Author: Anton Strilchuk <anton@isoty.pe>                           #
 # URL: http://isoty.pe                                               #
 # Created: 07-04-2014                                                #
-# Last-Updated: 07-04-2014                                           #
-#   By: Anton Strilchuk <anton@isoty.pe>                             #
+# Last-Updated: 30-07-2014                                           #
+#   By: Anton Strilchuk <ype@env.sh>                                 #
 #                                                                    #
 # Filename: opml_cluster_agg                                         #
 # Version: 0.0.1                                                     #
@@ -24,13 +24,18 @@ from xtermcolor import colorize
 ##|       longer to parse and cluster
 ##`----
 import listparser
-opml = listparser.parse('./agg_links.opml')
-feeds = []
-for i in opml.feeds:
-    feeds.append(i.url.encode('utf-8'))
+# opml = listparser.parse('./agg_links.opml')
+# feeds = []
+# for i in opml.feeds:
+#     feeds.append(i.url.encode('utf-8'))
 
-#feeds = ['http://www.cbc.ca/cmlink/rss-world',
-#         'http://news.nationalpost.com/category/news/world/feed/']
+feeds = ['http://feeds.feedburner.com/uk/gizmodo?format=xml',
+         'http://www.engadget.com/tag/rss/?format=xml',
+         'http://feeds.feedburner.com/T3/news?format=xml',
+         'http://feeds.theguardian.com/theguardian/technology/rss',
+         'http://feeds.gawker.com/lifehacker/full?format=xml',
+         'https://news.ycombinator.com/rss?format=xml',
+         'http://laughingsquid.com/feed/']
 
 ##,----
 ##| PARSE
@@ -56,7 +61,6 @@ for feed in feeds:
             print (colorize(e['title'].encode("utf-8"), ansi=9))
             print ('\t'),
             print (colorize(e['link'].encode("utf-8"), ansi=4))
-            print (e['published'])
             corpus.append(lowerwords)
             titles.append(e['title'])
             hyperlinks.append(e['link'])
@@ -94,7 +98,7 @@ def top_keywords(n,doc,corpus):
     return [w[0] for w in sorted_d[:n]]
 
 key_word_list=set()
-nkeywords=4
+nkeywords=2
 [[key_word_list.add(x) for x in top_keywords(nkeywords,doc,corpus)] for doc in corpus]
 
 ct=-1
@@ -133,12 +137,12 @@ for i in xrange(0,n):
 ##|  Hierarchically Cluster mat
 ##`----
 from hcluster import linkage
-t = 0.25
+t = 0.9
 Z = linkage(mat, 'single')
-dendrogram(Z, color_threshold=t)
+#dendrogram(Z, color_threshold=t)
 
-import pylab
-pylab.savefig( "new_agg_cluster.png" ,dpi=800)
+#import pylab
+#pylab.savefig( "new_agg_cluster.png" ,dpi=800)
 
 ##,----
 ##|  Cluster Extraction
