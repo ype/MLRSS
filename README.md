@@ -7,7 +7,7 @@ MLRSS is an attempt at applying the K-means algorithm to RSS feeds to filter the
 
 [MLRSS Demo (copy & paste-able asciinema rec)](https://asciinema.org/a/11252)
 
-##Usage
+## Usage
 
 Presently, the algorithm works with a bit of tweaking to the t (threshold) variable at [Line 136](opml_cluster_agg.py#L136) - depending on similarity of feeds this can be adjusted (0.65 has been my most sucessful) to reduce, or increase results.
 
