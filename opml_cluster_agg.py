@@ -1,6 +1,6 @@
 # -*- mode: Python; tab-width: 2; indent-tabs-mode:nil; -*-          #
 ######################################################################
-# Author: Anton Strilchuk <anton@isoty.pe>                           #
+# Author: Anton Strilchuk <ype@env.sh>                               #
 # URL: http://isoty.pe                                               #
 # Created: 07-04-2014                                                #
 # Last-Updated: 30-07-2014                                           #
